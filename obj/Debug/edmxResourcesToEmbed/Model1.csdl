@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLySanPhamModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="OOP_projectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Hoadons" EntityType="QuanLySanPhamModel.Hoadon" />
+    <EntitySet Name="OOP_project" EntityType="QuanLySanPhamModel.OOP_project" />
+  </EntityContainer>
+  <EntityType Name="Hoadon">
+    <Key>
+      <PropertyRef Name="INDEX" />
+    </Key>
+    <Property Name="INDEX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PRICE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="QUANTITES" Type="Int32" />
+    <Property Name="TOTAL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TIME" Type="Time" Precision="7" />
+  </EntityType>
+  <EntityType Name="OOP_project">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaSP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="TenSP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="SL" Type="Int32" />
+    <Property Name="TongTien" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+</Schema>

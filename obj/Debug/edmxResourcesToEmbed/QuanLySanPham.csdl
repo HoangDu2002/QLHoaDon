@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OOP_projectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="OOP_projectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Hoadons" EntityType="OOP_projectModel.Hoadon" />
+    <EntitySet Name="OOP_project" EntityType="OOP_projectModel.OOP_project" />
+  </EntityContainer>
+  <EntityType Name="Hoadon">
+    <Key>
+      <PropertyRef Name="INDEX" />
+    </Key>
+    <Property Name="INDEX" Type="Int32" Nullable="false" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PRICE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="QUANTITES" Type="Int32" />
+    <Property Name="TOTAL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TIME" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OOP_project">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name_product" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+</Schema>

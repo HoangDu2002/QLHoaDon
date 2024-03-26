@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanLySanPhamModelStoreContainer" CdmEntityContainer="OOP_projectEntities">
+    <EntitySetMapping Name="Hoadons">
+      <EntityTypeMapping TypeName="QuanLySanPhamModel.Hoadon">
+        <MappingFragment StoreEntitySet="Hoadon">
+          <ScalarProperty Name="TIME" ColumnName="TIME" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="QUANTITES" ColumnName="QUANTITES" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="INDEX" ColumnName="INDEX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OOP_project">
+      <EntityTypeMapping TypeName="QuanLySanPhamModel.OOP_project">
+        <MappingFragment StoreEntitySet="OOP_project">
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="SL" ColumnName="SL" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

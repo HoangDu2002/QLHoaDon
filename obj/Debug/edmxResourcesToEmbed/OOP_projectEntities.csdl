@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OOPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="OOP_projectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Hoadons" EntityType="OOPModel.Hoadon" />
+    <EntitySet Name="OOP_project" EntityType="OOPModel.OOP_project" />
+    <AssociationSet Name="FK_Hoadon_ToTable" Association="OOPModel.FK_Hoadon_ToTable">
+      <End Role="OOP_project" EntitySet="OOP_project" />
+      <End Role="Hoadon" EntitySet="Hoadons" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Hoadon">
+    <Key>
+      <PropertyRef Name="INDEX" />
+    </Key>
+    <Property Name="INDEX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PRICE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="QUANTITES" Type="Int32" />
+    <Property Name="TOTAL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TIME" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="OOP_project" Relationship="OOPModel.FK_Hoadon_ToTable" FromRole="Hoadon" ToRole="OOP_project" />
+  </EntityType>
+  <EntityType Name="OOP_project">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name_product" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Hoadons" Relationship="OOPModel.FK_Hoadon_ToTable" FromRole="OOP_project" ToRole="Hoadon" />
+  </EntityType>
+  <Association Name="FK_Hoadon_ToTable">
+    <End Type="OOPModel.OOP_project" Role="OOP_project" Multiplicity="0..1" />
+    <End Type="OOPModel.Hoadon" Role="Hoadon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OOP_project">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Hoadon">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

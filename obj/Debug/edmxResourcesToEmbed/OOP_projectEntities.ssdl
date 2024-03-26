@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OOPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Hoadon">
+    <Key>
+      <PropertyRef Name="INDEX" />
+    </Key>
+    <Property Name="INDEX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" />
+    <Property Name="NAME" Type="nvarchar(max)" />
+    <Property Name="PRICE" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="QUANTITES" Type="int" />
+    <Property Name="TOTAL" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TIME" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OOP_project">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name_product" Type="nvarchar(max)" />
+    <Property Name="Cost" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <Association Name="FK_Hoadon_ToTable">
+    <End Role="OOP_project" Type="Self.OOP_project" Multiplicity="0..1" />
+    <End Role="Hoadon" Type="Self.Hoadon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OOP_project">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Hoadon">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OOPModelStoreContainer">
+    <EntitySet Name="Hoadon" EntityType="Self.Hoadon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OOP_project" EntityType="Self.OOP_project" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Hoadon_ToTable" Association="Self.FK_Hoadon_ToTable">
+      <End Role="OOP_project" EntitySet="OOP_project" />
+      <End Role="Hoadon" EntitySet="Hoadon" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
